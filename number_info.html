@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Info</title>
+</head>
+<body>
+    <h2>Number Information</h2>
+    <input type="number" id="numInfo" placeholder="Enter a number">
+    <button onclick="calculateInfo()">Calculate</button>
+    <div id="info"></div>
+
+    <script>
+        function calculateInfo() {
+            let num = document.getElementById('numInfo').value;
+            let info = document.getElementById('info');
+
+            if (num === '') {
+                info.innerHTML = '<p>Please enter a number.</p>';
+                return;
+            }
+
+            let sqrt = Math.sqrt(num).toFixed(4);
+            let square = num * num;
+            let cube = num * num * num;
+            let factorial = 1;
+
+            for (let i = 1; i <= num; i++) factorial *= i;
+
+            info.innerHTML = `<p>Square Root: ${sqrt}</p>
+                              <p>Square: ${square}</p>
+                              <p>Cube: ${cube}</p>
+                              <p>Factorial: ${factorial}</p>`;
+        }
+    </script>
+</body>
+</html>
